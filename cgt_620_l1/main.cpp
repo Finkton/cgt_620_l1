@@ -5,6 +5,8 @@
 //  Created by Saad Jamal on 8/30/20.
 //  Copyright © 2020 Saad Jamal. All rights reserved.
 //
+//  run without IDE:
+//  clang++ -Xpreprocessor -fopenmp main.cpp -lomp; ./a.out
 
 #include <stdio.h>      /* printf */
 #include <iostream>     /* cout */
