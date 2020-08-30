@@ -14,21 +14,19 @@
 
 using namespace std;
 
-int* merge(int *xs, int *ys);
+
 
 int main(int argc, const char * argv[]) {
     
     // creating an array of random ints with length 1000000
-    int lenRandArr = 1000000;
+    int lenRandArr = INT_MAX;
     int *randArr = new int[lenRandArr];
-    
-    vector<int> randList;
     
     srand((unsigned int)time(NULL));
     unsigned long t = clock();
     cout<<"creating an array of random ints with length "<<lenRandArr<<"\n";
     for (int i=0; i<lenRandArr; i++){
-        randList.pushrand();
+        randArr[i] = rand();
     }
     
     float seconds = ((float)(clock() - t))/CLOCKS_PER_SEC;
@@ -62,6 +60,3 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
-int* merge(int *xs, int *ys){
-    
-}
