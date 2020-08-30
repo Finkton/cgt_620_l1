@@ -56,7 +56,9 @@ int main(int argc, const char * argv[]) {
     
     cout<<"max is: "<<max<<", parallel time: "<< seconds <<" seconds\n";
     
-    
+    // press enter to exit program
+    cout << "press enter to exit ";
+    cin.ignore();
     return 0;
 }
 
