@@ -27,6 +27,8 @@ int main(int argc, const char * argv[]) {
     srand((unsigned int)time(NULL));
     unsigned long t = clock();
     cout<<"creating an array of random ints with length "<<lenRandArr<<"\n";
+    #pragma omp parallel
+    #pragma omp for
     for (int i=0; i<lenRandArr; i++){
         randArr[i] = rand();
     }
@@ -49,18 +51,13 @@ int main(int argc, const char * argv[]) {
     max = INT_MIN;
     
     t = clock();
-    #pragma omp parallel
-    #pragma omp for
+    #pragma omp parallel for reduction(*:max)
     for (int i=0; i<lenRandArr; i++){
         if(max< randArr[i]) max = randArr[i];
     }
     seconds = ((float)(clock() - t))/CLOCKS_PER_SEC;
     
     cout<<"max is: "<<max<<", parallel time: "<< seconds <<" seconds\n";
-    
-    // press enter to exit program
-    cout << "press enter to exit ";
-    cin.ignore();
     return 0;
 }
 
